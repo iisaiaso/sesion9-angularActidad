@@ -1,0 +1,45 @@
+<div class="p-5 w-1/2 mx-auto mt-2 grid place-items-center">
+    <div class="bg-red-500 p-6 font-bold mb-3 text-2xl text-white"><h1>ANGULAR ACTIVIDAD ASINCRONA - 9</h1></div>
+    <div class="w-full max-w-xs">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+              Ingrese primer valor
+            </label>
+            <input 
+            #num1
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+            id="username" 
+            type="text">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              Ingrese segundo valor
+            </label>
+            <input 
+            #num2
+            class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
+            id="password" 
+            type="text">
+          </div>
+          <div class="mt-0">
+
+          <select [(ngModel)]="opcion"
+          class="shadow border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
+                <option selected>Elije una Opcion</option>
+                <option value="1">Sumar</option>
+                <option value="2">Restar</option>
+                <option value="3">Multiplicar</option>
+                <option value="4">Dividir</option>
+          </select>
+          </div>
+        </div>
+        <div [ngSwitch]="opcion">
+            <span *ngSwitchCase="1"  class="text-2xl" style="color:blue;">{{sumar(num1.value, num2.value)}} Resultado : {{resultado}}</span>
+            <span *ngSwitchCase="2"  class="text-2xl" style="color:violet;">{{restar(num1.value, num2.value)}} Resultado : {{resultado}}</span>
+            <span *ngSwitchCase="3"  class="text-2xl" style="color:orange;">{{multiplicacion(num1.value, num2.value)}} Resultado : {{resultado}}</span>
+            <span *ngSwitchCase="4"  class="text-2xl" style="color:rebeccapurple;">{{division(num1.value, num2.value)}} Resultado : {{resultado}}</span>
+            <span *ngSwitchDefault="" class="text-xl" > Resultado : <span  class="text-red-500 mt-4 text-xl">(No eligio opreracion)</span></span>
+        </div>
+      </div>
+</div>
